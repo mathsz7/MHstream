@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Administrador | MHstream</title>
+<style>
+:root{--bg:#090b12;--panel:#111522;--text:#f4f6fb;--muted:#a7b0c5;--line:#272e41;--accent:#8b5cf6;--cyan:#22d3ee;--red:#fb7185}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}.wrap{width:min(1050px,92%);margin:auto}header{border-bottom:1px solid var(--line);padding:20px 0}.top{display:flex;justify-content:space-between;align-items:center;gap:15px}.brand{font-weight:900;font-size:1.45rem;letter-spacing:-.05em}.brand span{color:var(--cyan)}a{color:var(--cyan);text-decoration:none}.btn{border:0;border-radius:10px;padding:11px 15px;font-weight:800;cursor:pointer;background:var(--accent);color:white;font:inherit}.btn.secondary{background:#20263a;border:1px solid var(--line)}.btn.danger{background:#451c2a;color:#fecdd3}.main{padding:30px 0 60px}h1{letter-spacing:-.04em;margin:0 0 8px;font-size:2rem}.muted{color:var(--muted);line-height:1.6}.notice{border:1px solid #7c5b23;background:#2b2110;color:#fcd98b;padding:14px 16px;border-radius:12px;margin:20px 0;line-height:1.55}.layout{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}.panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px}.panel h2{margin:0 0 17px;font-size:1.2rem}.field{display:flex;flex-direction:column;gap:7px;margin-bottom:14px}.field label{font-size:.88rem;color:#dce2f2}.field input,.field textarea,.field select{width:100%;background:#0b0e17;color:var(--text);border:1px solid var(--line);border-radius:9px;padding:12px;font:inherit}.field textarea{min-height:80px;resize:vertical}.hint{font-size:.78rem;color:var(--muted)}.form-actions{display:flex;gap:10px;flex-wrap:wrap}.list{display:flex;flex-direction:column;gap:10px}.item{border:1px solid var(--line);border-radius:12px;padding:13px;display:flex;justify-content:space-between;gap:12px;align-items:center}.item strong{display:block}.item small{color:var(--muted)}.item-actions{display:flex;gap:7px;flex-shrink:0}.item-actions button{padding:8px 10px;font-size:.83rem}.empty{color:var(--muted);padding:20px;text-align:center;border:1px dashed var(--line);border-radius:12px}.foot{color:var(--muted);font-size:.84rem;margin-top:25px}
+@media(max-width:760px){.layout{grid-template-columns:1fr}.top{align-items:flex-start;flex-direction:column}.item{align-items:flex-start;flex-direction:column}.item-actions{width:100%}}
+</style>
+</head>
+<body>
+<header><div class="wrap top"><a class="brand" href="index.html"><span>MH</span>stream · Admin</a><a href="index.html">← Ver vitrine</a></div></header>
+<main class="wrap main">
+<h1>Painel de produtos</h1><p class="muted">Cadastre produtos afiliados, edite preços e troque links e imagens da vitrine MHstream.</p>
+<div class="notice"><strong>Importante:</strong> esta é uma versão inicial que salva os dados somente neste navegador (armazenamento local). Não é um painel privado nem sincroniza com outros dispositivos ou com um site publicado. Para um site público com acesso administrativo seguro, será necessário conectar hospedagem e banco de dados ou usar uma plataforma com painel de administração. Não coloque informações privadas aqui.</div>
+<div class="layout">
+<section class="panel"><h2 id="formTitle">Adicionar produto</h2>
+<form id="productForm">
+<input type="hidden" id="productId">
+<div class="field"><label for="name">Nome do produto *</label><input id="name" required maxlength="100" placeholder="Ex.: Mouse gamer RGB"></div>
+<div class="field"><label for="category">Categoria</label><select id="category"><option>Periféricos</option><option>Áudio</option><option>Streaming</option><option>Iluminação</option><option>Cadeiras e mesas</option><option>Componentes</option><option>Acessórios</option><option>Outro</option></select></div>
+<div class="field"><label for="price">Preço em reais (opcional)</label><input id="price" type="number" min="0" step="0.01" placeholder="Ex.: 129.90"></div>
+<div class="field"><label for="description">Descrição</label><textarea id="description" maxlength="400" placeholder="Explique os principais recursos do produto"></textarea></div>
+<div class="field"><label for="image">Link da imagem (URL pública)</label><input id="image" type="url" placeholder="https://..."><span class="hint">Use um endereço direto e público de imagem, respeitando os direitos de uso.</span></div>
+<div class="field"><label for="url">Seu link de afiliado da Shopee *</label><input id="url" type="url" required placeholder="https://..."><span class="hint">Cole o link de afiliado gerado pela sua conta. Não use um link inventado.</span></div>
+<div class="form-actions"><button class="btn" type="submit" id="saveBtn">Adicionar à vitrine</button><button class="btn secondary" type="button" id="resetBtn">Limpar</button></div>
+</form></section>
+<section class="panel"><h2>Produtos cadastrados</h2><div id="list" class="list"></div><div class="form-actions" style="margin-top:16px"><button class="btn secondary" id="exportBtn" type="button">Exportar backup JSON</button><button class="btn danger" id="clearBtn" type="button">Apagar todos</button></div><p class="hint">Faça backups antes de limpar os dados. Os produtos demonstrativos podem ser removidos.</p></section>
+</div>
+<p class="foot">MHstream — painel inicial para demonstração. Ao colocar o site no ar, use uma solução com autenticação real para proteger o painel.</p>
+</main>
+<script>
+const KEY='mhstream_products_v1';
+const seed=[
+ {id:'demo1',name:'Headset gamer',category:'Áudio',price:'',description:'Adicione a descrição, o preço e seu link de afiliado pelo painel.',image:'',url:'',featured:true},
+ {id:'demo2',name:'Mouse gamer',category:'Periféricos',price:'',description:'Produto demonstrativo — substitua pelos seus produtos reais.',image:'',url:'',featured:true},
+ {id:'demo3',name:'Microfone para streaming',category:'Streaming',price:'',description:'Produto demonstrativo — adicione seu link de afiliado.',image:'',url:'',featured:true},
+ {id:'demo4',name:'Iluminação para setup',category:'Iluminação',price:'',description:'Produto demonstrativo — personalize a vitrine no painel.',image:'',url:'',featured:true}
+];
+function getProducts(){try{const x=localStorage.getItem(KEY);return x===null?seed:JSON.parse(x)}catch(e){return seed}}
+function saveProducts(p){localStorage.setItem(KEY,JSON.stringify(p));renderList()}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+const $=id=>document.getElementById(id);
+function resetForm(){$('productForm').reset();$('productId').value='';$('formTitle').textContent='Adicionar produto';$('saveBtn').textContent='Adicionar à vitrine'}
+function renderList(){const ps=getProducts();$('list').innerHTML=ps.length?ps.map(p=>`<div class="item"><div><strong>${esc(p.name)}</strong><small>${esc(p.category||'Acessórios')} · ${p.price!==''&&p.price!=null?'R$ '+Number(p.price).toLocaleString('pt-BR',{minimumFractionDigits:2}):'Preço não informado'}</small></div><div class="item-actions"><button class="btn secondary" type="button" data-edit="${esc(p.id)}">Editar</button><button class="btn danger" type="button" data-delete="${esc(p.id)}">Excluir</button></div></div>`).join(''):'<div class="empty">Nenhum produto cadastrado.</div>'}
+$('productForm').addEventListener('submit',e=>{e.preventDefault();const id=$('productId').value||('p'+Date.now().toString(36)+Math.random().toString(36).slice(2,7));const p={id,name:$('name').value.trim(),category:$('category').value,price:$('price').value,description:$('description').value.trim(),image:$('image').value.trim(),url:$('url').value.trim(),featured:true};if(!/^https?:\/\//i.test(p.url)){alert('Cole um link de afiliado válido começando com http:// ou https://');return}if(p.image&&!/^https?:\/\//i.test(p.image)){alert('O link da imagem precisa começar com http:// ou https://');return}const ps=getProducts(),i=ps.findIndex(x=>x.id===id);if(i>=0)ps[i]=p;else ps.unshift(p);saveProducts(ps);resetForm();alert('Produto salvo neste navegador.');});
+$('resetBtn').addEventListener('click',resetForm);
+$('list').addEventListener('click',e=>{const edit=e.target.closest('[data-edit]'),del=e.target.closest('[data-delete]');if(edit){const p=getProducts().find(x=>x.id===edit.dataset.edit);if(!p)return;$('productId').value=p.id;$('name').value=p.name;$('category').value=p.category||'Acessórios';$('price').value=p.price??'';$('description').value=p.description||'';$('image').value=p.image||'';$('url').value=p.url||'';$('formTitle').textContent='Editar produto';$('saveBtn').textContent='Salvar alterações';window.scrollTo({top:0,behavior:'smooth'})}if(del){const p=getProducts().find(x=>x.id===del.dataset.delete);if(p&&confirm('Excluir "'+p.name+'"?'))saveProducts(getProducts().filter(x=>x.id!==p.id))}});
+$('clearBtn').addEventListener('click',()=>{if(confirm('Apagar todos os produtos salvos neste navegador?')){saveProducts([]);resetForm()}});
+$('exportBtn').addEventListener('click',()=>{const blob=new Blob([JSON.stringify(getProducts(),null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='mhstream-backup.json';a.click();URL.revokeObjectURL(a.href)});
+renderList();
+</script>
+</body></html>
