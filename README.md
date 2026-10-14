@@ -1,32 +1,75 @@
- MHstream
- MHstream, Periféricos e Produtos Gamer  Loja online dedicada à divulgação de periféricos, acessórios e produtos gamers para jogadores e streamers. Nosso objetivo é facilitar o acesso a produtos selecionados, com informações claras, links confiáveis e direcionamento para plataformas de compra reconhecidas.  
- 🎮 MHstream — Produtos Gamer
- Sobre o projeto
-
-O MHstream é um projeto de loja online dedicado à divulgação de periféricos, acessórios e produtos gamers para jogadores e streamers.
-
- 🎯 Objetivo
-
-Facilitar a descoberta de produtos para setups gamers, reunindo informações, ofertas e links para plataformas de compra parceiras.
-
-🛒 Produtos
-
-- Teclados gamer
-- Mouses e mousepads
-- Headsets e microfones
-- Acessórios para streamers
-- Outros periféricos e equipamentos gamers
-
- 🔒 Segurança e transparência
-
-Buscamos divulgar links confiáveis e informações claras sobre os produtos. As compras, os pagamentos, os envios e as entregas são realizados pelos vendedores e pelas plataformas parceiras, conforme suas próprias políticas.
-
- 💰 Programa de afiliados
-
-O projeto poderá utilizar links de afiliados. Quando uma compra elegível é realizada por meio desses links, o MHstream poderá receber uma comissão, sem custo adicional para o comprador.
-
- 🚀 Status do projeto
-
-Em desenvolvimento.
-
-MHstream — Seu universo gamer começa aqui!
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="MHstream — equipamentos e acessórios para gamers e streamers.">
+<title>MHstream | Setup gamer e streaming</title>
+<style>
+:root{--bg:#090b12;--panel:#111522;--panel2:#171d2d;--text:#f4f6fb;--muted:#a7b0c5;--line:#272e41;--accent:#8b5cf6;--accent2:#22d3ee;--good:#a7f3d0}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}a{color:inherit;text-decoration:none}.wrap{width:min(1160px,92%);margin:auto}
+header{position:sticky;top:0;z-index:10;background:rgba(9,11,18,.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-size:1.55rem;font-weight:900;letter-spacing:-.06em}.brand span{color:var(--accent2)}.navlinks{display:flex;align-items:center;gap:22px;color:var(--muted);font-size:.92rem}.navlinks a:hover{color:white}.adminlink{border:1px solid var(--line);border-radius:999px;padding:10px 15px;color:white!important}
+.hero{padding:76px 0 54px;background:radial-gradient(ellipse at 80% 20%,rgba(139,92,246,.22),transparent 38%),radial-gradient(ellipse at 15% 10%,rgba(34,211,238,.12),transparent 30%)}.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:38px;align-items:center}.eyebrow{color:var(--accent2);font-weight:800;text-transform:uppercase;letter-spacing:.15em;font-size:.75rem}.hero h1{font-size:clamp(2.7rem,6vw,5rem);line-height:.98;letter-spacing:-.065em;margin:18px 0}.hero h1 em{font-style:normal;color:var(--accent2)}.hero p{font-size:1.08rem;line-height:1.7;color:var(--muted);max-width:570px}.cta{display:inline-flex;align-items:center;justify-content:center;background:linear-gradient(100deg,var(--accent),#6d5dfc);padding:14px 20px;border-radius:12px;font-weight:800;margin-top:12px;box-shadow:0 10px 35px #8b5cf633}.hero-art{min-height:310px;border:1px solid #34324d;border-radius:28px;background:linear-gradient(145deg,#1a2034,#10131f 65%);padding:25px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;position:relative}.hero-art:before{content:"";position:absolute;width:240px;height:240px;right:-35px;top:-35px;border-radius:50%;background:linear-gradient(135deg,#22d3ee55,#8b5cf655);filter:blur(2px)}.hero-art>*{position:relative}.orb{font-size:5.3rem;text-align:center;filter:drop-shadow(0 0 22px #22d3ee66)}.hero-art strong{font-size:1.35rem}.hero-art small{color:var(--muted);line-height:1.6}
+.benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:14px auto 50px}.benefit{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:18px}.benefit b{display:block;margin-bottom:5px}.benefit span{color:var(--muted);font-size:.9rem}
+.section{padding:28px 0 64px}.section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:22px}.section h2{font-size:clamp(1.8rem,3vw,2.6rem);letter-spacing:-.04em;margin:7px 0}.section-head p{color:var(--muted);margin:0}.controls{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px}.controls input,.controls select{background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:11px;padding:12px 14px;font:inherit}.controls input{flex:1;min-width:200px}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:17px}.product{background:var(--panel);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,border-color .2s}.product:hover{transform:translateY(-4px);border-color:#6251a8}.photo{height:190px;background:linear-gradient(135deg,#1c2335,#111522);display:flex;align-items:center;justify-content:center;overflow:hidden}.photo img{width:100%;height:100%;object-fit:cover}.photo .placeholder{font-size:3.8rem}.product-body{padding:16px;display:flex;flex-direction:column;flex:1}.tag{font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:var(--accent2);font-weight:800}.product h3{font-size:1rem;line-height:1.4;margin:8px 0}.desc{color:var(--muted);font-size:.86rem;line-height:1.5;flex:1}.price{font-size:1.35rem;font-weight:900;margin:15px 0 12px}.buy{display:block;text-align:center;background:white;color:#10121a;border-radius:10px;padding:11px;font-weight:900}.buy:hover{background:var(--accent2)}.empty{grid-column:1/-1;padding:40px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:16px}
+.disclosure{font-size:.8rem;color:#8e98ad;line-height:1.6;margin-top:18px}.newsletter{background:linear-gradient(120deg,#171a2b,#101522);border:1px solid var(--line);border-radius:22px;padding:30px;display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:65px}.newsletter h2{margin:0 0 7px}.newsletter p{margin:0;color:var(--muted)}footer{border-top:1px solid var(--line);padding:28px 0 38px;color:var(--muted);font-size:.86rem}.footer-row{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}.hero-grid{grid-template-columns:1fr}.hero-art{min-height:230px}.orb{font-size:4rem}.navlinks{gap:12px}}
+@media(max-width:560px){.nav{height:66px}.navlinks>a:not(.adminlink){display:none}.hero{padding-top:48px}.benefits{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.photo{height:230px}.newsletter{align-items:flex-start;flex-direction:column}.section-head{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+  <a class="brand" href="#"><span>MH</span>stream<span>.</span></a>
+  <nav class="navlinks"><a href="#produtos">Produtos</a><a href="#sobre">Sobre</a><a class="adminlink" href="admin.html">Área do administrador ↗</a></nav>
+</div></header>
+<main>
+<section class="hero"><div class="wrap hero-grid">
+  <div><div class="eyebrow">Seu próximo upgrade começa aqui</div><h1>Monte seu setup.<br><em>Domine a live.</em></h1><p>Achados e acessórios para gamers e streamers: periféricos, áudio, iluminação e itens para deixar seu espaço pronto para jogar e criar conteúdo.</p><a class="cta" href="#produtos">Explorar produtos ↓</a></div>
+  <div class="hero-art"><div class="orb">🎧</div><div><strong>Seu setup, seu estilo.</strong><br><small>Seleção de produtos para jogar, transmitir e criar — em um só lugar.</small></div></div>
+</div></section>
+<div class="wrap benefits" id="sobre">
+  <div class="benefit"><b>🎮 Para gamers</b><span>Periféricos e acessórios para sua estação de jogo.</span></div>
+  <div class="benefit"><b>🎙️ Para streamers</b><span>Áudio, iluminação e equipamentos para suas lives.</span></div>
+  <div class="benefit"><b>🔎 Achados selecionados</b><span>Confira detalhes e preço atual na loja parceira.</span></div>
+</div>
+<section class="section wrap" id="produtos">
+  <div class="section-head"><div><div class="eyebrow">Vitrine MHstream</div><h2>Encontre seu próximo upgrade</h2><p>Os produtos adicionados pelo administrador aparecem aqui.</p></div></div>
+  <div class="controls"><input id="search" type="search" placeholder="Buscar produto..." aria-label="Buscar produto"><select id="category" aria-label="Filtrar por categoria"><option value="">Todas as categorias</option></select><select id="sort" aria-label="Ordenar produtos"><option value="featured">Destaques</option><option value="low">Menor preço</option><option value="high">Maior preço</option></select></div>
+  <div id="products" class="grid"><div class="empty">Carregando produtos…</div></div>
+  <p class="disclosure">Aviso: a MHstream é uma vitrine de afiliados. Ao clicar em um produto, você poderá ser direcionado à loja parceira. Podemos receber comissão por compras qualificadas, sem custo adicional para você. Preços e disponibilidade podem mudar no site da loja.</p>
+</section>
+<section class="wrap"><div class="newsletter"><div><h2>Seu setup merece um upgrade.</h2><p>Explore a vitrine e confira as ofertas diretamente na loja parceira.</p></div><a class="cta" href="#produtos">Ver produtos</a></div></section>
+</main>
+<footer><div class="wrap footer-row"><span>© <span id="year"></span> MHstream. Todos os direitos reservados.</span><span>Vitrine independente de produtos afiliados.</span></div></footer>
+<script>
+const KEY='mhstream_products_v1';
+const seed=[
+ {id:'demo1',name:'Headset gamer',category:'Áudio',price:'',description:'Adicione a descrição, o preço e seu link de afiliado pelo painel.',image:'',url:'',featured:true},
+ {id:'demo2',name:'Mouse gamer',category:'Periféricos',price:'',description:'Produto demonstrativo — substitua pelos seus produtos reais.',image:'',url:'',featured:true},
+ {id:'demo3',name:'Microfone para streaming',category:'Streaming',price:'',description:'Produto demonstrativo — adicione seu link de afiliado.',image:'',url:'',featured:true},
+ {id:'demo4',name:'Iluminação para setup',category:'Iluminação',price:'',description:'Produto demonstrativo — personalize a vitrine no painel.',image:'',url:'',featured:true}
+];
+function getProducts(){try{const x=localStorage.getItem(KEY);return x===null?seed:JSON.parse(x)}catch(e){return seed}}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function render(){
+ let products=getProducts(), q=document.getElementById('search').value.toLowerCase().trim(), cat=document.getElementById('category').value, sort=document.getElementById('sort').value;
+ const cats=[...new Set(products.map(p=>p.category).filter(Boolean))].sort();
+ const select=document.getElementById('category'), old=select.value;
+ select.innerHTML='<option value="">Todas as categorias</option>'+cats.map(c=>`<option value="${esc(c)}">${esc(c)}</option>`).join('');
+ if(cats.includes(old))select.value=old; cat=select.value;
+ products=products.filter(p=>(!q||(p.name+' '+p.description+' '+p.category).toLowerCase().includes(q))&&(!cat||p.category===cat));
+ if(sort==='low')products.sort((a,b)=>(Number(a.price)||Infinity)-(Number(b.price)||Infinity));
+ if(sort==='high')products.sort((a,b)=>(Number(b.price)||0)-(Number(a.price)||0));
+ const root=document.getElementById('products');
+ if(!products.length){root.innerHTML='<div class="empty">Nenhum produto encontrado. Tente outra busca ou adicione produtos no painel do administrador.</div>';return}
+ root.innerHTML=products.map(p=>{
+ const price=p.price!==''&&p.price!=null?Number(p.price).toLocaleString('pt-BR',{style:'currency',currency:'BRL'}):'Confira na loja';
+ const image=p.image?`<img src="${esc(p.image)}" alt="${esc(p.name)}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=&quot;placeholder&quot;>🎮</div>'">`:`<div class="placeholder">🎮</div>`;
+ const link=p.url&&/^https?:\/\//i.test(p.url)?`<a class="buy" href="${esc(p.url)}" target="_blank" rel="sponsored nofollow noopener">Ver oferta ↗</a>`:`<span class="buy" style="opacity:.55">Link ainda não adicionado</span>`;
+ return `<article class="product"><div class="photo">${image}</div><div class="product-body"><span class="tag">${esc(p.category||'Acessórios')}</span><h3>${esc(p.name)}</h3><div class="desc">${esc(p.description||'Confira os detalhes na loja parceira.')}</div><div class="price">${price}</div>${link}</div></article>`
+ }).join('');
+}
+['search','category','sort'].forEach(id=>document.getElementById(id).addEventListener(id==='search'?'input':'change',render));
+document.getElementById('year').textContent=new Date().getFullYear();render();
+</script>
+</body></html>
